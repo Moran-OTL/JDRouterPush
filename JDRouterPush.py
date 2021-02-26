@@ -124,12 +124,12 @@ def pointOperateRecordsShow(headers,mac):
 # 推送通知
 def sendNotification(SERVERPUSHKEY,text,desp):
     # server推送
-    server_push_url = "https://sc.ftqq.com/" + SERVERPUSHKEY + ".send"
+    server_push_url = "https://sctapi.ftqq.com/" + SERVERPUSHKEY + ".send?title=JdyMessage"
     params = {
         "text" : text,
         "desp" : desp
     }
-    res = requests.get(url=server_push_url, params=params)
+    res = requests.post(url=server_push_url, params=params)
     if res.status_code == 200:
         print("推送成功!")
     else:
